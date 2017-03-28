@@ -1,4 +1,5 @@
 var React = require('react');
+var List = require('List');
 
 
 var Main = (props) => {
@@ -7,7 +8,8 @@ var Main = (props) => {
             <div>
                 <div>
                     <p>Main.jsx Rendered</p>
-                    {props.children}
+                    <List />
+                    {/*{props.children}*/}
                 </div>
             </div>
            
