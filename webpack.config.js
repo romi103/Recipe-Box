@@ -25,6 +25,8 @@ module.exports = {
             applicationStyles: 'app/styles/app.scss',
             bootstrapStyles: 'app/styles/bootstrap.min.css',
             List: 'app/component/List.jsx',
+            CustPanel: 'app/component/CustPanel.jsx',
+            CustModal: 'app/component/CustModal.jsx',
             storage: 'app/localStorage/localStorage.js'
         },
         extensions: ['', '.js', '.jsx']
