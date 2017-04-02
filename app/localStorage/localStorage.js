@@ -18,5 +18,10 @@ module.exports = {
             recipeArray.push(itemValue);
         }
         return recipeArray;
+    },
+
+    deleteRecipe: function(key) {
+        localStorage.removeItem(key);
+
     }
 }

@@ -20,6 +20,15 @@ var CustModal = React.createClass({
 
     },
 
+    // componentDidMount: function () {
+    //     if (this.props.mode === "edit") {
+    //         var name = ReactDOM.findDOMNode(this.refs.name);
+    //         var ingri = ReactDOM.findDOMNode(this.refs.ingri);
+    //         name.value
+    //     }
+
+    // },
+
     onRecipeSave: function () {
         var name = ReactDOM.findDOMNode(this.refs.name);
         var ingri = ReactDOM.findDOMNode(this.refs.ingri);
@@ -28,12 +37,12 @@ var CustModal = React.createClass({
     },
 
     render: function () {
-        var {show} = this.props;
+        var {show, mode} = this.props;
         return (
             <div>
                 <Modal show={show} onHide={this.onCloseModal}>
                 <ModalHeader closeButton>
-                    <ModalTitle>Modal heading</ModalTitle>
+                    <ModalTitle>{mode == "edit" ? "Edit Recipe" : "Add Recipe"}</ModalTitle>
                 </ModalHeader>
                 <ModalBody>
                         <Form horizontal>

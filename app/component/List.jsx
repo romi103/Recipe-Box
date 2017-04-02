@@ -11,11 +11,17 @@ var CustModal = require('CustModal');
 var List = React.createClass({
 
     getInitialState: function () {
-        return {showModal: false}
+        let currentStorage = storage.accessRecipes();
+        return {
+            showModal: false,
+            currentStorage: currentStorage,
+            modalMode: "add"
+    }
     },
 
    
     componentDidMount: function (){
+        console.log(this.state.currentStorage);
         // storage.createRecipes("test7","sebek,romek,pati");
         // console.log(storage.accessRecipes());
     },
@@ -34,13 +40,15 @@ var List = React.createClass({
     },
 
     render: function () {
+        let {modalMode} = this.state;
         let recipes = storage.accessRecipes();
+
         if (recipes) {
         
-            let panels;
+            var panels;
             panels = recipes.map((recipe, index) => {
                 return (
-                    <CustPanel recipe={recipe} key={index + 1} eventKey={index + 1}/>
+                    <CustPanel recipe={recipe} key={index} eventKey={index}/>
                 );
             });
         }
@@ -51,7 +59,7 @@ var List = React.createClass({
                     {panels}
                 </Accordion>
                 <Button bsStyle="primary" bsSize="large" onClick={this.open}>Add Recipe</Button>
-                <CustModal show={this.state.showModal} onCloseModal={this.close}/>
+                <CustModal show={this.state.showModal} onCloseModal={this.close} mode={modalMode}/>
             </div>
         );
     }
