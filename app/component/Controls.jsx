@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 var ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 var Button = require('react-bootstrap').Button;
 var storage = require('storage');
+var emitter = require('app/component/modalEmitter.js');
 
 
 var Controls = React.createClass({
@@ -12,6 +13,7 @@ var Controls = React.createClass({
         let recipeKey = deleteButton.dataset.key;
         console.log(recipeKey);
         storage.deleteRecipe(recipeKey);
+        emitter.emit('refresh'); 
         
     },
 

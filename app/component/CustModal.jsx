@@ -20,14 +20,14 @@ var CustModal = React.createClass({
 
     },
 
-    // componentDidMount: function () {
-    //     if (this.props.mode === "edit") {
-    //         var name = ReactDOM.findDOMNode(this.refs.name);
-    //         var ingri = ReactDOM.findDOMNode(this.refs.ingri);
-    //         name.value
-    //     }
+    componentDidMount: function () {
+        if (this.props.mode === "edit") {
+            var name = ReactDOM.findDOMNode(this.refs.name);
+            var ingri = ReactDOM.findDOMNode(this.refs.ingri);
+            name.value
+        }
 
-    // },
+    },
 
     onRecipeSave: function () {
         var name = ReactDOM.findDOMNode(this.refs.name);
