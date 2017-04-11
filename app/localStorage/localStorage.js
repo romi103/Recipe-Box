@@ -3,8 +3,14 @@ function Recipe(name, steps) {
     this.steps = steps.split(",");
 }
 
+//defalult recipe - if storage is empty
+if (localStorage.length == 0) {
+    let newRecipe = new Recipe("Pizza", "water,flour,tomato");
+    localStorage.setItem("Pizza", JSON.stringify(newRecipe));
+}
+
 module.exports = {
-    // 
+
     createRecipes: function(name, steps) {
         let newRecipe = new Recipe(name, steps);
         localStorage.setItem(name, JSON.stringify(newRecipe));

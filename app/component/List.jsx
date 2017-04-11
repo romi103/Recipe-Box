@@ -21,14 +21,12 @@ var List = React.createClass({
     }
 }, 
     componentDidMount: function (){
-        console.log(this.state.currentStorage);
         // storage.createRecipes("test7","sebek,romek,pati");
         // console.log(storage.accessRecipes());
     },
 
     componentWillMount: function () {
         emitter.addListener('refresh', function () {
-            console.log("test");
             this.forceUpdate()}.bind(this));
     },
 
@@ -61,7 +59,7 @@ var List = React.createClass({
 
 
         return (
-            <div>
+            <div style={{margin: "50px 50px"}}>
                 <Accordion>
                     {panels}
                 </Accordion>

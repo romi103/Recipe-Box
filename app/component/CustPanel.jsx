@@ -1,10 +1,11 @@
 var React = require('react');
 var Panel = require('react-bootstrap').Panel;
 var Controls = require('Controls');
-var CustModal = require('CustModal');
+
 
 
 var CustPanel = React.createClass({
+
     render: function () {
 
         var {recipe, ...other} = this.props;
@@ -21,10 +22,10 @@ var CustPanel = React.createClass({
 
         return (
             <Panel header={recipe.name} {...other} bsStyle="success">
-                    <h2>Ingridients {console.log(recipe)}</h2>
+                    <h2>Ingridients</h2>
                     <hr />
                     {panel}
-                    <Controls recipeKey={recipe.name}/>
+                    <Controls recipe={recipe}/>
             </Panel>
             );
     }
