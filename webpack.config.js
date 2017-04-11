@@ -28,7 +28,8 @@ module.exports = {
             CustPanel: 'app/component/CustPanel.jsx',
             Controls: 'app/component/Controls.jsx',
             CustModal: 'app/component/CustModal.jsx',
-            storage: 'app/localStorage/localStorage.js'
+            storage: 'app/localStorage/localStorage.js',
+            emitter: 'app/component/modalEmitter.js'
         },
         extensions: ['', '.js', '.jsx']
     },

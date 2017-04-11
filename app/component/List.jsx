@@ -6,6 +6,8 @@ var CustPanel = require('CustPanel');
 var ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 var Button = require('react-bootstrap').Button;
 var CustModal = require('CustModal');
+var emitter = require('app/component/modalEmitter.js');
+
 
 
 var List = React.createClass({
@@ -15,15 +17,17 @@ var List = React.createClass({
         return {
             showModal: false,
             currentStorage: currentStorage,
-            modalMode: "add"
+            modalMode: "add"   
     }
-    },
-
-   
+}, 
     componentDidMount: function (){
-        console.log(this.state.currentStorage);
         // storage.createRecipes("test7","sebek,romek,pati");
         // console.log(storage.accessRecipes());
+    },
+
+    componentWillMount: function () {
+        emitter.addListener('refresh', function () {
+            this.forceUpdate()}.bind(this));
     },
 
 
@@ -53,13 +57,14 @@ var List = React.createClass({
             });
         }
 
+
         return (
-            <div>
+            <div style={{margin: "50px 50px"}}>
                 <Accordion>
                     {panels}
                 </Accordion>
                 <Button bsStyle="primary" bsSize="large" onClick={this.open}>Add Recipe</Button>
-                <CustModal show={this.state.showModal} onCloseModal={this.close} mode={modalMode}/>
+                <CustModal show={this.state.showModal} onCloseModal={this.close} mode={modalMode} />
             </div>
         );
     }

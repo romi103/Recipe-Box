@@ -7,9 +7,7 @@ var Main = (props) => {
         <div>
             <div>
                 <div>
-                    <p>Main.jsx Rendered</p>
                     <List />
-                    {/*{props.children}*/}
                 </div>
             </div>
            
